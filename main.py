@@ -1,5 +1,5 @@
 import pandas as pd
-import plotly.express as px
+import plotly as px
 import streamlit as st
 
 df=pd.read_csv('WHO_time_series.csv')
@@ -10,22 +10,6 @@ fig1=px.line(df, x='Date_reported', y='Cumulative_cases', color='Country', title
 fig1.update_layout(xaxis_title='Data',yaxis_title='Número de Casos Acumulados')
 fig1.show()
 
-df_brasil_india = df.query('Country == "India" or Country== "Brazil"')
-fig2=px.line(df_brasil_india,x='Date_reported', y='Cumulative_cases', color='Country', title='Números de casos de Covid no Brasil')
-fig2.update_layout(xaxis_title='Data',yaxis_title='Número de Casos Acumulados no Brasil e na Índia')
-fig2.show()
-
-df_brasil_india_usa = df.query('Country == "India" or Country== "Brazil"or Country=="United States of America" ')
-fig4=px.pie(df_brasil_india_usa, values='Cumulative_cases', names='Country', title='Números de casos de Covid no Brasil, India e USA')
-fig4.show()
-
-fig5=px.histogram(df_brasil_india_usa,x='Date_reported', y='Cumulative_cases', color='Country', title='Covid na India, Brasil e USA')
-fig5.update_layout(xaxis_title='Data',yaxis_title='Número de Casos Covid')
-fig5.show()
-
 st.set_page_config(page_title="DashCovid",layout="wide")
 
 st.plotly_chart(fig1, use_container_width=True)
-st.plotly_chart(fig2, use_container_width=True)
-st.plotly_chart(fig4, use_container_width=True)
-st.plotly_chart(fig5, use_container_width=True)
