@@ -1,5 +1,5 @@
 import pandas as pd
-import plotly as px
+import plotly.express as px
 import streamlit as st
 
 df=pd.read_csv('WHO_time_series.csv')
