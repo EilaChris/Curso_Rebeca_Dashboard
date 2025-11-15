@@ -19,7 +19,6 @@ df_brasil_india_usa = df.query('Country == "India" or Country== "Brazil"or Count
 fig4=px.pie(df_brasil_india_usa, values='Cumulative_cases', names='Country', title='Números de casos de Covid no Brasil, India e USA')
 fig4.show()
 
-#Histograma
 fig5=px.histogram(df_brasil_india_usa,x='Date_reported', y='Cumulative_cases', color='Country', title='Covid na India, Brasil e USA')
 fig5.update_layout(xaxis_title='Data',yaxis_title='Número de Casos Covid')
 fig5.show()
